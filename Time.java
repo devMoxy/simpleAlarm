@@ -1,0 +1,22 @@
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
+public class Time {
+    public String realTime;
+    public String displayTime;
+    
+    public void time(){
+        LocalTime now = LocalTime.now();
+        realTime = now.format(DateTimeFormatter.ofPattern("HH:mm"));
+        this.realTime = realTime;
+        displayTime = now.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+        this.displayTime = displayTime;
+        System.out.print("\r" + "Current time: " + displayTime);
+        try{
+            Thread.sleep(500);
+        }
+        catch(InterruptedException e){
+            System.out.println("Interception occurred");
+        }
+    }
+}
